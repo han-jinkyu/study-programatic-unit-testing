@@ -7,7 +7,7 @@ https://github.com/gilbutITbook/006814
 ## 목차
 ### 제 1부 단위 테스트의 기초
 1. [첫 번째 JUnit 테스트 만들기](docs/01.md)
-2. JUnit 진짜로 써보기
+2. [JUnit 진지하게 보기](docs/02.md)
 3. JUnit 단언 깊게 파기
 4. 테스트 조직
 
