@@ -15,21 +15,27 @@ import static org.junit.Assert.assertTrue;
 
 public class ProfileTest {
 
+   private Profile profile;
+   private BooleanQuestion question;
+   private Criteria criteria;
+
+   @Before
+   public void create() {
+      profile = new Profile("Bull Hockey, Inc.");
+      question = new BooleanQuestion(1, "Got bonuses?");
+      criteria = new Criteria();
+   }
+
    @Test
    public void matchAnswersFalseWhenMatchCriteriaNotMet() {
       /* 준비 */
-      // 프로필을 작성한다
-      Profile profile = new Profile("Bull Hockey, Inc.");
-
       // 질문을 작성하고 답변을 작성하여 프로필에 추가한다
-      Question question = new BooleanQuestion(1, "Got bonuses?");
-      Answer profileAnswer = new Answer(question, Bool.FALSE);
-      profile.add(profileAnswer);
+      profile.add(new Answer(question, Bool.FALSE));
 
       // 답변에 대한 기준(Criterion)을 작성하고 Criteria 컬렉션에 추가한다
-      Criteria criteria = new Criteria();
-      Answer criteriaAnswer = new Answer(question, Bool.TRUE);
-      Criterion criterion = new Criterion(criteriaAnswer, Weight.MustMatch);
+      Criterion criterion = new Criterion(
+              new Answer(question, Bool.TRUE),
+              Weight.MustMatch);
       criteria.add(criterion);
 
       /* 실행 */
@@ -42,15 +48,11 @@ public class ProfileTest {
    @Test
    public void matchAnswersTrueForAnyDontCareCriteria() {
       /* 준비 */
-      Profile profile = new Profile("Bull Hockey, Inc.");
+      profile.add(new Answer(question, Bool.FALSE));
 
-      Question question = new BooleanQuestion(1, "Got milk?");
-      Answer profileAnswer = new Answer(question, Bool.FALSE);
-      profile.add(profileAnswer);
-
-      Criteria criteria = new Criteria();
-      Answer criteriaAnswer = new Answer(question, Bool.TRUE);
-      Criterion criterion = new Criterion(criteriaAnswer, Weight.DontCare);
+      Criterion criterion = new Criterion(
+              new Answer(question, Bool.TRUE),
+              Weight.DontCare);
       criteria.add(criterion);
 
       /* 실행 */
