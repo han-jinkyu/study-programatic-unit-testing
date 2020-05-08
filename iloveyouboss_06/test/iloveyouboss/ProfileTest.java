@@ -22,11 +22,12 @@ public class ProfileTest {
 
       // 질문을 작성하고 답변을 작성하여 프로필에 추가한다
       Question question = new BooleanQuestion(1, "Got bonuses?");
-      Answer criteriaAnswer = new Answer(question, Bool.TRUE);
-      profile.add(criteriaAnswer);
+      Answer profileAnswer = new Answer(question, Bool.FALSE);
+      profile.add(profileAnswer);
 
       // 답변에 대한 기준(Criterion)을 작성하고 Criteria 컬렉션에 추가한다
       Criteria criteria = new Criteria();
+      Answer criteriaAnswer = new Answer(question, Bool.TRUE);
       Criterion criterion = new Criterion(criteriaAnswer, Weight.MustMatch);
       criteria.add(criterion);
 
