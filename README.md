@@ -9,7 +9,7 @@ https://github.com/gilbutITbook/006814
 1. [첫 번째 JUnit 테스트 만들기](docs/01.md)
 2. [JUnit 진지하게 보기](docs/02.md)
 3. [JUnit 단언 깊게 파기](docs/03.md)
-4. 테스트 조직
+4. [테스트 조직](docs/04.md)
 
 ### 제 2부 빠른 암기법 습득
 5. 좋은 테스트의 FIRST 속성
