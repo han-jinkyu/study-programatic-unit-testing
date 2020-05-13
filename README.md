@@ -12,7 +12,7 @@ https://github.com/gilbutITbook/006814
 4. [테스트 조직](docs/04.md)
 
 ### 제 2부 빠른 암기법 습득
-5. 좋은 테스트의 FIRST 속성
+5. [좋은 테스트의 FIRST 속성](docs/05.md)
 6. Right-BICEP: 무엇을 테스트할 것인가?
 7. 경계 조건: CORRECT 기억법
 
