@@ -27,15 +27,15 @@ public class ProfilePoolTest {
       doTheyReimburseTuition = new BooleanQuestion(1, "Reimburses tuition?");
    }
    
-   @Test
-   public void scoresProfileInPool() {
-      langrsoft.add(new Answer(doTheyReimburseTuition, Bool.TRUE));
-      pool.add(langrsoft);
-
-      pool.score(soleNeed(doTheyReimburseTuition, Bool.TRUE, Weight.Important));
-      
-      assertThat(langrsoft.score(), equalTo(Weight.Important.getValue()));
-   }
+//   @Test
+//   public void scoresProfileInPool() {
+//      langrsoft.add(new Answer(doTheyReimburseTuition, Bool.TRUE));
+//      pool.add(langrsoft);
+//
+//      pool.score(soleNeed(doTheyReimburseTuition, Bool.TRUE, Weight.Important));
+//
+//      assertThat(langrsoft.score(), equalTo(Weight.Important.getValue()));
+//   }
 
    private Criteria soleNeed(Question question, int value, Weight weight) {
       Criteria criteria = new Criteria();
@@ -43,16 +43,16 @@ public class ProfilePoolTest {
       return criteria;
    }
 
-   @Test
-   public void answersResultsInScoredOrder() {
-      smeltInc.add(new Answer(doTheyReimburseTuition, Bool.FALSE));
-      pool.add(smeltInc);
-      langrsoft.add(new Answer(doTheyReimburseTuition, Bool.TRUE));
-      pool.add(langrsoft);
-
-      pool.score(soleNeed(doTheyReimburseTuition, Bool.TRUE, Weight.Important));
-      List<Profile> ranked = pool.ranked();
-      
-      assertThat(ranked.toArray(), equalTo(new Profile[] { langrsoft, smeltInc }));
-   }
+//   @Test
+//   public void answersResultsInScoredOrder() {
+//      smeltInc.add(new Answer(doTheyReimburseTuition, Bool.FALSE));
+//      pool.add(smeltInc);
+//      langrsoft.add(new Answer(doTheyReimburseTuition, Bool.TRUE));
+//      pool.add(langrsoft);
+//
+//      pool.score(soleNeed(doTheyReimburseTuition, Bool.TRUE, Weight.Important));
+//      List<Profile> ranked = pool.ranked();
+//
+//      assertThat(ranked.toArray(), equalTo(new Profile[] { langrsoft, smeltInc }));
+//   }
 }
