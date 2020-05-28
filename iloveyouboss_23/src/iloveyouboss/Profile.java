@@ -13,8 +13,7 @@ import java.util.function.*;
 import java.util.stream.*;
 
 public class Profile {
-   private Map<String,Answer> answers = new HashMap<>();
-
+   private AnswerCollection answers = new AnswerCollection();
    private String name;
 
    public Profile(String name) {
@@ -26,29 +25,15 @@ public class Profile {
    }
 
    public void add(Answer answer) {
-      answers.put(answer.getQuestionText(), answer);
+      answers.add(answer);
    }
 
    public MatchSet getMatchSet(Criteria criteria) {
       return new MatchSet(answers, criteria);
    }
 
-   public List<Answer> classicFind(Predicate<Answer> pred) {
-      List<Answer> results = new ArrayList<Answer>();
-      for (Answer answer: answers.values())
-         if (pred.test(answer))
-            results.add(answer);
-      return results;
-   }
-
    @Override
    public String toString() {
      return name;
-   }
-
-   public List<Answer> find(Predicate<Answer> pred) {
-      return answers.values().stream()
-            .filter(pred)
-            .collect(Collectors.toList());
    }
 }
